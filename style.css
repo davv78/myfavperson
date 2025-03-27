@@ -1,0 +1,287 @@
+body {
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    animation: fadeIn 1s ease-in-out;
+}
+
+h1 {
+    color: #ff4d6d;
+    animation: bounce 1.5s infinite alternate;
+}
+
+button.option {
+    background: #ff85a2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 18px;
+    position: relative;
+}
+
+button.option:hover {
+    background: #ff4d6d;
+    transform: scale(1.1);
+}
+
+button.option.correct {
+    background: #4CAF50 !important;
+    animation: correctShake 0.5s ease-in-out;
+}
+
+button.option.wrong {
+    background: #FF6347 !important;
+    animation: wrongShake 0.5s ease-in-out;
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes correctShake {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
+
+#apology {
+    font-size: 20px;
+    color: #ff3399;
+    font-weight: bold;
+    margin: 15px 0;
+    background: #fff;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    border: 3px dashed #ff66b2;
+    animation: wiggle 1s infinite alternate;
+}
+
+@keyframes wiggle {
+    0% { transform: rotate(-2deg); }
+    100% { transform: rotate(2deg); }
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+#restart, #forgive, #thinkAgain {
+    border: none;
+    border-radius: 25px;
+    padding: 12px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+}
+
+#restart {
+    background: #ff99cc;
+}
+
+#restart:hover {
+    background: #ff6699;
+    transform: scale(1.1);
+}
+
+#forgive {
+    background: #66ff99;
+}
+
+#forgive:hover {
+    background: #33cc66;
+    transform: scale(1.1);
+}
+
+#thinkAgain {
+    background: #ffcc66;
+}
+
+#thinkAgain:hover {
+    background: #ff9933;
+    transform: scale(1.1);
+}
+
+
+.button-container button {
+    background: #ff85a2;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 18px;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.button-container button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Warna khusus untuk tiap button */
+.button-container button:nth-child(1) { /* Main Lagi */
+    background: #ffcc66;
+}
+
+.button-container button:nth-child(1):hover {
+    background: #ffaa33;
+}
+
+.button-container button:nth-child(2) { /* Maafin Aku */
+    background: #66ff99;
+}
+
+.button-container button:nth-child(2):hover {
+    background: #33cc66;
+}
+
+/* Modal utama */
+#forgive-container, #message-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+#forgive-modal, #message-modal {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    max-width: 300px;
+    transform: scale(0.8);
+    animation: popUp 0.3s ease-in-out forwards;
+}
+
+/* Animasi modal muncul */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes popUp {
+    from { transform: scale(0.8); }
+    to { transform: scale(1); }
+}
+
+/* Tombol efek */
+.forgive-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+
+.forgive-buttons button, #close-message {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#forgive-yes {
+    background: linear-gradient(45deg, #ff758c, #ff7eb3);
+    color: white;
+}
+
+#forgive-no {
+    background: linear-gradient(45deg, #b0bec5, #78909c);
+    color: white;
+}
+
+/* Efek hover */
+.forgive-buttons button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Efek klik */
+.forgive-buttons button:active {
+    transform: scale(0.95);
+}
+
+/* Animasi efek hati */
+.heart-effect {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    animation: heartFloat 1.5s ease-out forwards;
+    color: pink;
+}
+
+@keyframes heartFloat {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    50% { transform: translate(-50%, -60%) scale(1.2); }
+    100% { transform: translate(-50%, -70%) scale(0); opacity: 0; }
+}
+
+/* Efek pesan */
+.love-effect #message-modal {
+    background: pink;
+    color: white;
+}
+
+.sad-effect #message-modal {
+    background: lightgray;
+    color: black;
+}
+
+/* Animasi tombol shake */
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
